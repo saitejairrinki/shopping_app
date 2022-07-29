@@ -1,1 +1,1 @@
-# shopping_app
+# emart-app

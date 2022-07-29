@@ -1,0 +1,97 @@
+<div class="row data-section" >
+
+  <!-------- Login and Registration Section!!!---------->
+  <!-- <div *ngIf="!authService.loggedIn()" class="col-md">
+    <app-login></app-login>
+    <app-register></app-register>
+  </div> -->
+
+  <!-------- About E-MART Section!!!---------->
+  <div class="col-md   ">
+    <h1 class="text-primary text-center m-3"><i class="fa fa-shopping-cart pr-2"></i>E-MART</h1>
+    <!-- <p class="m-4">
+     
+    </p> -->
+    <p class="m-4">
+      Welcome to E-MART, <br> E-MART is India's leading retail fashion and consumer electronics. 
+      We are proud of E-MART, which continues to evolve and lead the Online market, experiencing
+      exceptional growth.
+    </p>
+    <p class="text-center">
+      <img
+        src="./assets/images/shopping_img.jpg"
+        class="img-fluid rounded border border-danger p-1"
+        alt="Products Info"
+      />
+    </p>
+  </div>
+    <!-------- Login and Registration Section!!!---------->
+    <div *ngIf="!authService.loggedIn()" class="col-md">
+      <app-login></app-login>
+      <app-register></app-register>
+    </div>
+    <div *ngIf="user" class="text-center  bg-info border rounded p-1 mx-5 pt-5"
+    style="padding-top: 20px;">
+      <app-notification-panel [user]="user"></app-notification-panel>
+      <img
+      src="./assets/images/start-shopping-image.jpg"
+      class="img-fluid rounded border border-danger p-1"
+      alt="Products Info" style="height:250px;"
+    />
+    <!-- <button routerLink="/book">BooksMart</button> -->
+    </div>
+
+  <!-------- Rightside E-MART Section!!!---------->
+  <div class="col-md  p-4">
+
+
+    <!-- spinner -->
+    <div *ngIf="isLoading" class="spinner-border text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="text-center text-dark border rounded p-1 mx-5 my-4">
+      <span
+        >Toatl <strong>{{ productsTotal }}</strong></span
+      >
+      products are now available in our E-MART!<br />
+      <span
+        >A total of <strong>{{ ordersTotal }}</strong></span
+      >
+      orders have been purchased on our site So far.
+    </div>
+    <!-- <button routerLink="/book">BooksMart</button> -->
+    <!---Image right side-->
+    <p class="mx-4"><img src="./assets/images/online-shopping-rightside.jpg" class="img-fluid rounded" alt="Products Info" /></p>
+    <!---Image right side closed-->
+    <!-- <div *ngIf="user" class="text-center model bg-warning border rounded p-1 mx-5">
+      <app-notification-panel [user]="user"></app-notification-panel>
+    </div> -->
+  </div>
+</div>
+
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="mainModal" [ngStyle]="{ display: display }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header bg-dark text-white text-center">
+        <h4 class="modal-title" [innerHTML]="modalHeader ? modalHeader : 'Success!'"></h4>
+        <button type="button" (click)="onCloseHandled()" class="close" data-dismiss="modal" routerLink="/">
+          &times;
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body" *ngIf="modalBody" [innerHTML]="modalBody"></div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onCloseHandled()" class="btn btn-danger" data-dismiss="modal" routerLink="/">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
